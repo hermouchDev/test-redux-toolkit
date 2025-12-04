@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, updateUser } from "../reducers/userReducer";
+import { deleteUser } from "../reducers/userReducer";
 import { Link } from "react-router-dom";
 
 function UserList() {
-    const users = useSelector((state) => state.users);
+    const users = useSelector((state) => state.users) ?? [];
     const dispatch = useDispatch();
 
     return (
@@ -33,13 +33,7 @@ function UserList() {
                                 <td>{u.email}</td>
                                 <td>
                                     <Link to={`/update/${u.id}`}>
-                                        <button
-                                            onClick={() =>
-                                                dispatch(updateUser(u))
-                                            }
-                                        >
-                                            UPDATE
-                                        </button>
+                                        <button>UPDATE</button>
                                     </Link>
                                     <button
                                         onClick={() =>

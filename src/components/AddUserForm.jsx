@@ -17,8 +17,8 @@ function AddUserForm() {
 
         const newUser = {
             id: id_last_user + 1,
-            name: name,
-            email: email,
+            name: name.trim(),
+            email: email.trim(),
         };
 
         dispatch(addUser(newUser));
@@ -35,6 +35,7 @@ function AddUserForm() {
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
                 />
                 <br />
                 Email :

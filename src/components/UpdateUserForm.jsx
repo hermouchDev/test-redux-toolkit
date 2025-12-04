@@ -15,7 +15,12 @@ function UpdateUserForm() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(updateUser({ id: Number(id), name, email }));
+        const userUpdated = {
+            id: Number(id),
+            name,
+            email,
+        };
+        dispatch(updateUser(userUpdated));
         navigate("/");
     }
 
@@ -27,6 +32,7 @@ function UpdateUserForm() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
             />
             <br />
             <input
